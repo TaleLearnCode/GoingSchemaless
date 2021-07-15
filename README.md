@@ -33,4 +33,4 @@ Learn about the benefits and pitfalls of moving data from a relational data mode
 | Event | Location | Date | Time | Room | Downloads |
 |-------|----------|------|------|------|-----------|
 | [THAT Conference 2021](https://that.us/activities/3cwetny8U9ZGS82HfsyS) | Wisconsin Dells, WI (Hybrid) | July 27, 2021 | 15:30 EDT | Online | Available Afterwards |
-| [Nebraska.Code 2021](https://nebraskacode.amegala.com/Sessions/1157) | Lincoln, NE | July 14, 2021 | 15:45 CDT | 105 | Available Aftwareds |
+| [Nebraska.Code 2021](https://nebraskacode.amegala.com/Sessions/1157) | Lincoln, NE | July 14, 2021 | 15:45 CDT | 105 | [Slides](https://bit.ly/3ehtuGH) |
