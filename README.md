@@ -2,7 +2,7 @@
 ![Going Schema-less: How to migrate a relational database to a NoSQL database](https://chadgreen.blob.core.windows.net/slides/GoingSchemaless.jpg)
 
 ## Abstract
-There can be a lot of great benefits of developing with a NoSQL database over a relational database. In this presentation, you will learn about those benefits and also the potential pitfalls.  There will be demonstrations where we take relationally developed data, restructure it into a NoSQL database (Cosmos DB in particular), and create an application to work with that data.
+There can be a lot of great benefits of developing with a NoSQL database over a relational database. In this presentation, you will learn about those benefits and also the potential pitfalls. There will be demonstrations where we take relationally developed data, restructure it into a NoSQL database (Cosmos DB in particular), and create an application to work with that data.
 
 ## Elevator Pitch
 Learn about the benefits and pitfalls of moving data from a relational data model to a NoSQL data model with demonstrations using Cosmos DB and .NET backends.
@@ -28,10 +28,10 @@ Learn about the benefits and pitfalls of moving data from a relational data mode
 - NoSQL
 - SQL Server
 
-
 ## Presentations
 | Event | Location | Date | Time | Room | Downloads |
 |-------|----------|------|------|------|-----------|
+| [THAT](https://that.us/activities/PhDjJn8wVYTqPy0iEI8R) | Wisconsin Dells, WI | July 26, 2022 | 4:00 pm CDT | Room H | Available Afterwards |
 | [Momentum Developer Conference](https://momentumdevcon.com/session/264188) | Cincinnati, OH | October 15, 2021 | 15:10 EDT | Breakout Three | Available Afterwards |
 | [Atlanta Code Camp](https://www.atlantacodecamp.com/2021/Schedule) | Atlanta, GA | October 9, 2021 | 13:00 EDT | 207 | [Slides](https://chadgreen.blob.core.windows.net/slides/GoingSchemaless_AtlantaCodeCamp.pdf) |
 | [KCDC](https://kcdc.info) | Kansas City, MO | September 17, 2021 | 14:15 CDT | 2211 | [Slides](https://chadgreen.blob.core.windows.net/slides/GoingSchemaless_KCDC.pdf) |
