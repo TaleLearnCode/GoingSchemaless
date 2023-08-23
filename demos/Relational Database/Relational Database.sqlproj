@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Relational_Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{e60f26c0-14af-48fe-aeed-bdb07cbd23ab}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Relational_Database</RootNamespace>
+    <AssemblyName>Relational_Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Product.sql" />
+    <Build Include="Tables\Theme.sql" />
+    <Build Include="Tables\LanguageCulture.sql" />
+    <Build Include="Tables\Language.sql" />
+    <Build Include="Tables\Country.sql" />
+    <Build Include="Tables\WorldRegion.sql" />
+    <Build Include="Tables\CountryDivision.sql" />
+    <Build Include="Tables\ContentType.sql" />
+    <Build Include="Tables\Content.sql" />
+    <Build Include="Tables\ContentCopy.sql" />
+    <Build Include="Tables\Currency.sql" />
+    <Build Include="Tables\CurrencyCountry.sql" />
+    <Build Include="Tables\ProductAvailablity.sql" />
+    <Build Include="Tables\ProductPrice.sql" />
+    <Build Include="Tables\ProductTheme.sql" />
+    <Build Include="Tables\Customer.sql" />
+    <Build Include="Tables\CustomerAddress.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Populate\Populate_Language.sql" />
+    <None Include="Scripts\Populate\Populate_LanguageCulture.sql" />
+    <None Include="Scripts\Populate\Populate_WorldRegion.sql" />
+    <None Include="Scripts\Populate\Populate_Country.sql" />
+    <None Include="Scripts\Populate\Populate_CountryDivision.sql" />
+    <None Include="Scripts\Populate\Populate_ContentType.sql" />
+    <None Include="Scripts\Populate\Populate_Content.sql" />
+    <None Include="Scripts\Populate\Populate_Theme.sql" />
+    <None Include="Scripts\Populate\Populate_ContentCopy.sql" />
+    <None Include="Scripts\Populate\Populate_Currency.sql" />
+    <None Include="Scripts\Populate\Populate_CurrencyCountry.sql" />
+    <None Include="Scripts\Populate\Populate_ProductAvailability.sql" />
+    <None Include="Scripts\Populate\Populate_Product.sql" />
+    <None Include="Scripts\Populate\Populate_ProductPrice.sql" />
+    <None Include="Scripts\Populate\Populate_ProductTheme.sql" />
+    <None Include="Relational Database.publish.xml" />
+    <None Include="Scripts\Populate\Populate_Customer.sql" />
+    <None Include="Scripts\Populate\Populate_CustomerAddress.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Relational Database.refactorlog" />
+  </ItemGroup>
+</Project>
