@@ -8,6 +8,7 @@
 :r .\Populate\Populate_Currency.sql
 :r .\Populate\Populate_CurrencyCountry.sql
 :r .\Populate\Populate_ProductAvailability.sql
+:r .\Populate\Populate_OrderStatus.sql
 
 :r .\Populate\Populate_Content.sql
 :r .\Populate\Populate_ContentCopy.sql
@@ -19,3 +20,5 @@
 
 :r .\Populate\Populate_Customer.sql
 :r .\Populate\Populate_CustomerAddress.sql
+:r .\Populate\Populate_CustomerOrder.sql
+:r .\Populate\Populate_CustomerOrderItem.sql

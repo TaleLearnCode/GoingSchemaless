@@ -79,6 +79,9 @@
     <Build Include="Tables\ProductTheme.sql" />
     <Build Include="Tables\Customer.sql" />
     <Build Include="Tables\CustomerAddress.sql" />
+    <Build Include="Tables\CustomerOrder.sql" />
+    <Build Include="Tables\OrderStatus.sql" />
+    <Build Include="Tables\CustomerOrderItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Populate\Populate_Language.sql" />
@@ -99,6 +102,9 @@
     <None Include="Relational Database.publish.xml" />
     <None Include="Scripts\Populate\Populate_Customer.sql" />
     <None Include="Scripts\Populate\Populate_CustomerAddress.sql" />
+    <None Include="Scripts\Populate\Populate_OrderStatus.sql" />
+    <None Include="Scripts\Populate\Populate_CustomerOrder.sql" />
+    <None Include="Scripts\Populate\Populate_CustomerOrderItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
