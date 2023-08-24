@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.33920.267
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Relational Database", "Relational Database\Relational Database.sqlproj", "{E60F26C0-14AF-48FE-AEED-BDB07CBD23AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relational Example", "Relational Example\Relational Example.csproj", "{2720A7AA-ECC3-430E-896A-CD8382908A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relational Example", "Relational Example\Relational Example.csproj", "{2720A7AA-ECC3-430E-896A-CD8382908A6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schemaless Models", "Schemaless Models\Schemaless Models.csproj", "{3BCAFEC9-1819-4EB5-81C1-001738C6EB07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schemaless Models", "Schemaless Models\Schemaless Models.csproj", "{3BCAFEC9-1819-4EB5-81C1-001738C6EB07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relational DbContext", "Relational DbContext\Relational DbContext.csproj", "{19F63346-A5D8-4700-BB13-29833E2AD20C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{3BCAFEC9-1819-4EB5-81C1-001738C6EB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BCAFEC9-1819-4EB5-81C1-001738C6EB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BCAFEC9-1819-4EB5-81C1-001738C6EB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F63346-A5D8-4700-BB13-29833E2AD20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F63346-A5D8-4700-BB13-29833E2AD20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F63346-A5D8-4700-BB13-29833E2AD20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F63346-A5D8-4700-BB13-29833E2AD20C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
