@@ -1,6 +1,4 @@
-﻿using TaleLearnCode.GoingSchemaless.Schemaless.Models.Components;
-
-namespace TaleLearnCode.GoingSchemaless.Schemaless.Models;
+﻿namespace TaleLearnCode.GoingSchemaless.Schemaless.Models;
 public class LanguageCulture : MetadataBase
 {
 

@@ -1,6 +1,4 @@
-﻿using TaleLearnCode.GoingSchemaless.Schemaless.Models.Components;
-
-namespace TaleLearnCode.GoingSchemaless.Schemaless.Models;
+﻿namespace TaleLearnCode.GoingSchemaless.Schemaless.Models;
 
 public class Country : MetadataBase
 {
@@ -12,10 +10,10 @@ public class Country : MetadataBase
 	public string Name { get; set; } = null!;
 
 	[JsonProperty("worldRegion")]
-	public WorldRegionComponent WorldRegion { get; set; } = null!;
+	public WorldRegionComponent? WorldRegion { get; set; }
 
 	[JsonProperty("worldSubregion")]
-	public WorldRegionComponent WorldSubregion { get; set; } = null!;
+	public WorldRegionComponent? WorldSubregion { get; set; }
 
 	[JsonProperty("hasDivisions")]
 	public bool HasDivisions { get; set; }
