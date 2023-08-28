@@ -33,7 +33,7 @@ Learn about the benefits and pitfalls of moving data from a relational data mode
 ## Presentations
 | Event | Location | Date | Time | Room | Downloads |
 |-------|----------|------|------|------|-----------|
-| [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 28, 2022 | 9:45 AM CDT | Room D1 | Available Afterwards |
+| [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 28, 2022 | 9:45 AM CDT | Room D1 | [Slides](presentations/GoingSchemaless_DevUp.pdf) |
 | [THAT](https://that.us/activities/PhDjJn8wVYTqPy0iEI8R) | Wisconsin Dells, WI | July 26, 2022 | 4:00 pm CDT | Room H | [Slides](presentations/GoingSchemaless_THAT.pdf) |
 | [Momentum Developer Conference](https://momentumdevcon.com/session/264188) | Cincinnati, OH | October 15, 2021 | 15:10 EDT | Breakout Three | [Slides](presentations/GoingSchemaless_Momentum.pdf) |
 | [Atlanta Code Camp](https://www.atlantacodecamp.com/2021/Schedule) | Atlanta, GA | October 9, 2021 | 13:00 EDT | 207 | [Slides](https://chadgreen.blob.core.windows.net/slides/GoingSchemaless_AtlantaCodeCamp.pdf) |
