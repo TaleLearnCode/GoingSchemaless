@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Relational = TaleLearnCode.GoingSchemaless.Repository;
+using SchemalessModels = TaleLearnCode.GoingSchemaless.Schemaless.Models;
 
 PrintBanner();
 
@@ -14,11 +16,12 @@ using CosmosClient cosmosClient = new("https://cosmos-goingschemaless.documents.
 Database database = await ConnectToDatabaseAsync("BuildingBricks");
 
 Container metadataContainer = await ConnectToContainerAsync("Metadata", "/metadataType");
-using TaleLearnCode.GoingSchemaless.Repository.GoingSchemalessContext relationalContext = new(GetDatabasePassword());
+using Relational.GoingSchemalessContext relationalContext = new(GetDatabasePassword());
 
 await LoadCountriesAsync();
 await LoadCountryDivisionsAsync();
 await LoadCurrenciesAsync();
+await LoadLanguageCulturesAsync();
 
 static string GetDatabasePassword()
 {
@@ -82,7 +85,7 @@ async Task<Container> ConnectToContainerAsync(string id, string partitionKeyPath
 	return container;
 }
 
-async Task<Dictionary<int, T>> RetrieveMetadataByLegacyIdAsync<T>(string metadataType) where T : TaleLearnCode.GoingSchemaless.Schemaless.Models.MetadataBase
+async Task<Dictionary<int, T>> RetrieveMetadataByLegacyIdAsync<T>(string metadataType) where T : SchemalessModels.MetadataBase
 {
 	Dictionary<int, T> response = new();
 	using FeedIterator<T> feed = metadataContainer.GetItemQueryIterator<T>($"SELECT * FROM metadata");
@@ -102,36 +105,33 @@ async Task LoadCountriesAsync()
 {
 	PrintModuleBanner("countries");
 
-	Dictionary<string, TaleLearnCode.GoingSchemaless.Schemaless.Models.Country> existingSchemalessCountries = new();
-	using FeedIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.Country> feed = metadataContainer.GetItemQueryIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.Country>($"SELECT * FROM metadata");
+	Dictionary<string, SchemalessModels.Country> existingSchemalessCountries = new();
+	using FeedIterator<SchemalessModels.Country> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.Country>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
-		FeedResponse<TaleLearnCode.GoingSchemaless.Schemaless.Models.Country> feedResponse = await feed.ReadNextAsync();
-		foreach (TaleLearnCode.GoingSchemaless.Schemaless.Models.Country item in feedResponse)
+		FeedResponse<SchemalessModels.Country> feedResponse = await feed.ReadNextAsync();
+		foreach (SchemalessModels.Country item in feedResponse)
 		{
 			if (item.MetadataType == "Country")
 				existingSchemalessCountries.Add(item.Code, item);
 		}
 	}
 
-	List<TaleLearnCode.GoingSchemaless.Repository.Models.Country> relationalCountries = await relationalContext.Countries
+	List<Relational.Models.Country> relationalCountries = await relationalContext.Countries
 		.Include(x => x.WorldRegionCodeNavigation)
 		.Include(x => x.WorldSubregionCodeNavigation)
 		.Include(x => x.CountryDivisions)
 		.ToListAsync();
 
-	foreach (TaleLearnCode.GoingSchemaless.Repository.Models.Country relationalCountry in relationalCountries)
+	foreach (Relational.Models.Country relationalCountry in relationalCountries)
 	{
 		if (!existingSchemalessCountries.ContainsKey(relationalCountry.CountryCode))
 		{
-			TaleLearnCode.GoingSchemaless.Schemaless.Models.Country createdItem
+			SchemalessModels.Country createdItem
 				= await metadataContainer.CreateItemAsync(relationalCountry.ToCosmosModel(Guid.NewGuid().ToString()), new PartitionKey("Country"));
 			Console.WriteLine($"\t{createdItem.Id}\t{createdItem.Name}");
 		}
 	}
-
-
-
 
 }
 
@@ -139,27 +139,27 @@ async Task LoadCountryDivisionsAsync()
 {
 	PrintModuleBanner("countryDivisions");
 
-	Dictionary<(string, string), TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision> existingSchemalessCountryDivisions = new();
-	using FeedIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision> feed = metadataContainer.GetItemQueryIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision>($"SELECT * FROM metadata");
+	Dictionary<(string, string), SchemalessModels.CountryDivision> existingSchemalessCountryDivisions = new();
+	using FeedIterator<SchemalessModels.CountryDivision> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.CountryDivision>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
-		FeedResponse<TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision> feedResponse = await feed.ReadNextAsync();
-		foreach (TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision item in feedResponse)
+		FeedResponse<SchemalessModels.CountryDivision> feedResponse = await feed.ReadNextAsync();
+		foreach (SchemalessModels.CountryDivision item in feedResponse)
 		{
 			if (item.MetadataType == "CountryDivision")
 				existingSchemalessCountryDivisions.Add((item.CountryCode, item.Code), item);
 		}
 	}
 
-	List<TaleLearnCode.GoingSchemaless.Repository.Models.CountryDivision> relationalCountryDivisions = await relationalContext.CountryDivisions
+	List<Relational.Models.CountryDivision> relationalCountryDivisions = await relationalContext.CountryDivisions
 		.Include(x => x.CountryCodeNavigation)
 		.ToListAsync();
 
-	foreach (TaleLearnCode.GoingSchemaless.Repository.Models.CountryDivision relationalCountryDivision in relationalCountryDivisions)
+	foreach (Relational.Models.CountryDivision relationalCountryDivision in relationalCountryDivisions)
 	{
 		if (!existingSchemalessCountryDivisions.ContainsKey((relationalCountryDivision.CountryCode, relationalCountryDivision.CountryDivisionCode)))
 		{
-			TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivision createdItem
+			SchemalessModels.CountryDivision createdItem
 				= await metadataContainer.CreateItemAsync(relationalCountryDivision.ToCosmosModel(Guid.NewGuid().ToString()), new PartitionKey("CountryDivision"));
 			Console.WriteLine($"\t{createdItem.Id}\t{createdItem.Country.Name} — {createdItem.Name}");
 		}
@@ -172,36 +172,69 @@ async Task LoadCountryDivisionsAsync()
 
 async Task LoadCurrenciesAsync()
 {
+
 	PrintModuleBanner("Currencies");
 
-	Dictionary<string, TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency> existingSchemalessCurrencies = new();
-	using FeedIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency> feed = metadataContainer.GetItemQueryIterator<TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency>($"SELECT * FROM metadata");
+	Dictionary<string, SchemalessModels.Currency> existingSchemalessCurrencies = new();
+	using FeedIterator<SchemalessModels.Currency> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.Currency>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
-		FeedResponse<TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency> feedResponse = await feed.ReadNextAsync();
-		foreach (TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency item in feedResponse)
+		FeedResponse<SchemalessModels.Currency> feedResponse = await feed.ReadNextAsync();
+		foreach (SchemalessModels.Currency item in feedResponse)
 		{
 			if (item.MetadataType == "Currency")
 				existingSchemalessCurrencies.Add(item.Code, item);
 		}
 	}
 
-	List<TaleLearnCode.GoingSchemaless.Repository.Models.Currency> relationalCurrencies = await relationalContext.Currencies
+	List<Relational.Models.Currency> relationalCurrencies = await relationalContext.Currencies
 		.Include(x => x.CurrencyCountries)
 			.ThenInclude(x => x.CountryCodeNavigation)
 		.ToListAsync();
 
-	foreach (TaleLearnCode.GoingSchemaless.Repository.Models.Currency relationalCurrency in relationalCurrencies)
+	foreach (Relational.Models.Currency relationalCurrency in relationalCurrencies)
 	{
 		if (!existingSchemalessCurrencies.ContainsKey(relationalCurrency.CurrencyCode))
 		{
-			TaleLearnCode.GoingSchemaless.Schemaless.Models.Currency createdItem
+			SchemalessModels.Currency createdItem
 				= await metadataContainer.CreateItemAsync(relationalCurrency.ToCosmosModel(Guid.NewGuid().ToString()), new PartitionKey("Currency"));
 			Console.WriteLine($"\t{createdItem.Id}\t{createdItem.Name}");
 		}
 	}
 
+}
 
+async Task LoadLanguageCulturesAsync()
+{
 
+	PrintModuleBanner("Language Cultures");
+
+	Dictionary<string, SchemalessModels.LanguageCulture> existingSchemalessLanguageCultures = new();
+	using FeedIterator<SchemalessModels.LanguageCulture> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.LanguageCulture>($"SELECT * FROM metadata");
+	while (feed.HasMoreResults)
+	{
+		FeedResponse<SchemalessModels.LanguageCulture> feedResponse = await feed.ReadNextAsync();
+		foreach (SchemalessModels.LanguageCulture item in feedResponse)
+		{
+			if (item.MetadataType == "LanguageCulture")
+				existingSchemalessLanguageCultures.Add(item.Code, item);
+		}
+	}
+
+	List<Relational.Models.LanguageCulture> relationalLanguageCultures = await relationalContext.LanguageCultures
+		.ToListAsync();
+
+	Dictionary<string, Relational.Models.Language> languages = await relationalContext.Languages.ToDictionaryAsync(x => x.LanguageCode, x => x);
+
+	foreach (Relational.Models.LanguageCulture relationalLanguageCulture in relationalLanguageCultures)
+	{
+		if (!existingSchemalessLanguageCultures.ContainsKey(relationalLanguageCulture.LanguageCultureId)
+			&& languages.TryGetValue(relationalLanguageCulture.LanguageCode, out Relational.Models.Language? language) && language is not null)
+		{
+			SchemalessModels.LanguageCulture createdItem
+				= await metadataContainer.CreateItemAsync(relationalLanguageCulture.ToCosmosModel(Guid.NewGuid().ToString(), language), new PartitionKey("LanguageCulture"));
+			Console.WriteLine($"\t{createdItem.Id}\t{createdItem.Name}");
+		}
+	}
 
 }

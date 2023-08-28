@@ -43,6 +43,16 @@ internal static class ExtensionMethods
 			Countries = currency.CurrencyCountries.ToCosmosComponentList(),
 		};
 
+	internal static TaleLearnCode.GoingSchemaless.Schemaless.Models.LanguageCulture ToCosmosModel(this TaleLearnCode.GoingSchemaless.Repository.Models.LanguageCulture languageCulture, string id, TaleLearnCode.GoingSchemaless.Repository.Models.Language language)
+		=> new()
+		{
+			Id = id,
+			Code = languageCulture.LanguageCode,
+			Name = languageCulture.EnglishName,
+			NativeName = languageCulture.NativeName,
+			Language = language.ToCosmosComponent()
+		};
+
 	internal static TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryComponent ToCosmosComponent(this TaleLearnCode.GoingSchemaless.Repository.Models.Country country)
 		=> new()
 		{
@@ -75,6 +85,14 @@ internal static class ExtensionMethods
 			};
 		else return null;
 	}
+
+	internal static TaleLearnCode.GoingSchemaless.Schemaless.Models.LanguageComponent ToCosmosComponent(this TaleLearnCode.GoingSchemaless.Repository.Models.Language language)
+		=> new()
+		{
+			Code = language.LanguageCode,
+			Name = language.LanguageName,
+			NativeName = language.NativeName
+		};
 
 	internal static List<TaleLearnCode.GoingSchemaless.Schemaless.Models.CountryDivisionComponent> ToCosmosComponentList(this ICollection<TaleLearnCode.GoingSchemaless.Repository.Models.CountryDivision> countryDivisions)
 	{
