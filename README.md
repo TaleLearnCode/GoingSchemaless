@@ -41,13 +41,14 @@ Attendees will gain actionable insights into the migration process, from initial
 
 ## Learning Objectives
 - Learn about the pros and cons of developing a NoSQL data model over a relational one.
-- Learn how to migrate data from a relational data model to a NoSQL data model.
+- Learn how to migrate data from a relational database to a NoSQL data model.
 - Learn how to develop a .NET application to use a Cosmos DB NoSQL data model
 
 ## Presentations
 
 | Event | Location | Date | Time | Room | Downloads |
 |-------|:--------:|-----:|-----:|-----:|----------:|
+| [Serverless Architecture Conference Berlin 2024](https://serverless-architecture.io/berlin/) | Berlin, Germany | October 20 - 23, 2024 | TBA | TBA | Available Afterwards |
 | [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 28, 2022 | 9:45 AM CDT | Room D1 | [Slides](./EventMaterials/GoingSchemaless_DevUp.pdf) |
 | [THAT](https://that.us/activities/PhDjJn8wVYTqPy0iEI8R) | Wisconsin Dells, WI | July 26, 2022 | 4:00 pm CDT | Room H | [Slides](./EventMaterials/GoingSchemaless_THAT.pdf) |
 | [Momentum Developer Conference](https://momentumdevcon.com/session/264188) | Cincinnati, OH | October 15, 2021 | 15:10 EDT | Breakout Three | [Slides](./EventMaterials/GoingSchemaless_Momentum.pdf) |
