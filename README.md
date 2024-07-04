@@ -48,6 +48,7 @@ Attendees will gain actionable insights into the migration process, from initial
 
 | Event | Location | Date | Time | Room | Downloads |
 |-------|:--------:|-----:|-----:|-----:|----------:|
+| [Update Conference Prague 2024](https://www.updateconference.net/) | Prague, Czech Republic | November 14-15, 2024 | TBA | TBA | Available Afterwards |
 | [Serverless Architecture Conference Berlin 2024](https://serverless-architecture.io/berlin/) | Berlin, Germany | October 20 - 23, 2024 | TBA | TBA | Available Afterwards |
 | [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 28, 2022 | 9:45 AM CDT | Room D1 | [Slides](./EventMaterials/GoingSchemaless_DevUp.pdf) |
 | [THAT](https://that.us/activities/PhDjJn8wVYTqPy0iEI8R) | Wisconsin Dells, WI | July 26, 2022 | 4:00 pm CDT | Room H | [Slides](./EventMaterials/GoingSchemaless_THAT.pdf) |
@@ -58,8 +59,8 @@ Attendees will gain actionable insights into the migration process, from initial
 | [THAT Conference 2021](https://that.us/activities/3cwetny8U9ZGS82HfsyS) | Wisconsin Dells, WI (Hybrid) | July 27, 2021 | 15:30 EDT | Online |[Slides](https://chadgreen.blob.core.windows.net/slides/GoingSchemaLess_THAT.pdf) |
 | [Nebraska.Code 2021](https://nebraskacode.amegala.com/Sessions/1157) | Lincoln, NE | July 14, 2021 | 15:45 CDT | 105 | [Slides](https://bit.ly/3ehtuGH) |
 
+Email [chadgreen@chadgreen.com](mailto:chadgreen@chadgreen.com?subject=Presentation%20Request:%20Going%20Schema-less) to have Chad present this session at your event.
 
 ## Resources
-There are no additional resources for this presentation.
 
-Email [chadgreen@chadgreen.com](mailto:chadgreen@chadgreen.com?subject=Presentation%20Request:%20Going%20Schema-less) to have Chad present this session at your event.
+There are no additional resources for this presentation.
