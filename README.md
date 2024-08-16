@@ -50,6 +50,7 @@ Attendees will gain actionable insights into the migration process, from initial
 |-------|:--------:|-----:|-----:|-----:|----------:|
 | [Update Conference Prague 2024](https://www.updateconference.net/) | Prague, Czech Republic | November 14-15, 2024 | TBA | TBA | Available Afterwards |
 | [Serverless Architecture Conference Berlin 2024](https://serverless-architecture.io/berlin/) | Berlin, Germany | October 20 - 23, 2024 | TBA | TBA | Available Afterwards |
+| [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 16, 2024 | 8:30 AM CDT | Room D3 | [Slides](./EventMaterials/GoingSchemaless_DevUp2024.pdf) |
 | [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 28, 2022 | 9:45 AM CDT | Room D1 | [Slides](./EventMaterials/GoingSchemaless_DevUp.pdf) |
 | [THAT](https://that.us/activities/PhDjJn8wVYTqPy0iEI8R) | Wisconsin Dells, WI | July 26, 2022 | 4:00 pm CDT | Room H | [Slides](./EventMaterials/GoingSchemaless_THAT.pdf) |
 | [Momentum Developer Conference](https://momentumdevcon.com/session/264188) | Cincinnati, OH | October 15, 2021 | 15:10 EDT | Breakout Three | [Slides](./EventMaterials/GoingSchemaless_Momentum.pdf) |
