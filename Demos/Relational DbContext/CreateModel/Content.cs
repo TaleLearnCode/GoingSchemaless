@@ -7,9 +7,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<Content>(entity =>
 		{
-			entity.ToTable("Content");
-
-			entity.HasComment("Represents content for an item managed by the platform");
+			entity.ToTable(t => t.HasComment("Represents content for an item managed by the platform"));
 
 			entity.Property(e => e.ContentId).HasComment("Identifier for the content record.");
 

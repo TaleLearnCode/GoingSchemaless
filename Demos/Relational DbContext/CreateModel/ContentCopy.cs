@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<ContentCopy>(entity =>
 		{
-			entity.ToTable("ContentCopy");
-
-			entity.HasComment("The language/culture-specific version of a content element.");
+			entity.ToTable(t => t.HasComment("The language/culture-specific version of a content element."));
 
 			entity.Property(e => e.ContentCopyId).HasComment("Identifier for the content copy record.");
 

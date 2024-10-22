@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<CustomerAddress>(entity =>
 		{
-			entity.ToTable("CustomerAddress");
-
-			entity.HasComment("Represents an address for a Building Bricks customer.");
+			entity.ToTable("CustomerAddress", t => t.HasComment("Represents an address for a Building Bricks customer."));
 
 			entity.Property(e => e.CustomerAddressId).HasComment("Identifier for the customer address record.");
 

@@ -26,7 +26,7 @@ await LoadLanguageCulturesAsync();
 static string GetDatabasePassword()
 {
 	Console.Write("Password: ");
-	StringBuilder password = new StringBuilder();
+	StringBuilder password = new();
 	while (true)
 	{
 		var key = Console.ReadKey(true);
@@ -85,27 +85,27 @@ async Task<Container> ConnectToContainerAsync(string id, string partitionKeyPath
 	return container;
 }
 
-async Task<Dictionary<int, T>> RetrieveMetadataByLegacyIdAsync<T>(string metadataType) where T : SchemalessModels.MetadataBase
-{
-	Dictionary<int, T> response = new();
-	using FeedIterator<T> feed = metadataContainer.GetItemQueryIterator<T>($"SELECT * FROM metadata");
-	while (feed.HasMoreResults)
-	{
-		FeedResponse<T> feedResponse = await feed.ReadNextAsync();
-		foreach (T item in feedResponse)
-		{
-			if (item.MetadataType == metadataType)
-				response.Add(item.LegacyId, item);
-		}
-	}
-	return response;
-}
+//async Task<Dictionary<int, T>> RetrieveMetadataByLegacyIdAsync<T>(string metadataType) where T : SchemalessModels.MetadataBase
+//{
+//	Dictionary<int, T> response = new();
+//	using FeedIterator<T> feed = metadataContainer.GetItemQueryIterator<T>($"SELECT * FROM metadata");
+//	while (feed.HasMoreResults)
+//	{
+//		FeedResponse<T> feedResponse = await feed.ReadNextAsync();
+//		foreach (T item in feedResponse)
+//		{
+//			if (item.MetadataType == metadataType)
+//				response.Add(item.LegacyId, item);
+//		}
+//	}
+//	return response;
+//}
 
 async Task LoadCountriesAsync()
 {
 	PrintModuleBanner("countries");
 
-	Dictionary<string, SchemalessModels.Country> existingSchemalessCountries = new();
+	Dictionary<string, SchemalessModels.Country> existingSchemalessCountries = [];
 	using FeedIterator<SchemalessModels.Country> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.Country>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
@@ -139,7 +139,7 @@ async Task LoadCountryDivisionsAsync()
 {
 	PrintModuleBanner("countryDivisions");
 
-	Dictionary<(string, string), SchemalessModels.CountryDivision> existingSchemalessCountryDivisions = new();
+	Dictionary<(string, string), SchemalessModels.CountryDivision> existingSchemalessCountryDivisions = [];
 	using FeedIterator<SchemalessModels.CountryDivision> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.CountryDivision>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
@@ -175,7 +175,7 @@ async Task LoadCurrenciesAsync()
 
 	PrintModuleBanner("Currencies");
 
-	Dictionary<string, SchemalessModels.Currency> existingSchemalessCurrencies = new();
+	Dictionary<string, SchemalessModels.Currency> existingSchemalessCurrencies = [];
 	using FeedIterator<SchemalessModels.Currency> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.Currency>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{
@@ -209,7 +209,7 @@ async Task LoadLanguageCulturesAsync()
 
 	PrintModuleBanner("Language Cultures");
 
-	Dictionary<string, SchemalessModels.LanguageCulture> existingSchemalessLanguageCultures = new();
+	Dictionary<string, SchemalessModels.LanguageCulture> existingSchemalessLanguageCultures = [];
 	using FeedIterator<SchemalessModels.LanguageCulture> feed = metadataContainer.GetItemQueryIterator<SchemalessModels.LanguageCulture>($"SELECT * FROM metadata");
 	while (feed.HasMoreResults)
 	{

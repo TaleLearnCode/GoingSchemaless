@@ -6,9 +6,8 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<Product>(entity =>
 		{
-			entity.ToTable("Product");
 
-			entity.HasComment("Represents a product sold by Building Bricks.");
+			entity.ToTable("Product", t => t.HasComment("Represents a product sold by Building Bricks."));
 
 			entity.Property(e => e.ProductId)
 															.HasMaxLength(5)

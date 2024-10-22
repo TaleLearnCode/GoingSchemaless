@@ -9,9 +9,7 @@ internal static partial class CreateModel
 			entity.HasKey(e => e.LanguageCode)
 															.HasName("pkcLanguage");
 
-			entity.ToTable("Language");
-
-			entity.HasComment("Represents a spoken/written language.");
+			entity.ToTable("Language", t => t.HasComment("Represents a spoken/written language."));
 
 			entity.Property(e => e.LanguageCode)
 															.HasMaxLength(2)

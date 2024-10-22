@@ -6,9 +6,8 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<Theme>(entity =>
 		{
-			entity.ToTable("Theme");
 
-			entity.HasComment("Represents a theme within the products for classification and marketing purposes.");
+			entity.ToTable("Theme", t => t.HasComment("Represents a theme within the products for classification and marketing purposes."));
 
 			entity.Property(e => e.ThemeId).HasComment("The identifier of the theme record.");
 

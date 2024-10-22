@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<LanguageCulture>(entity =>
 		{
-			entity.ToTable("LanguageCulture");
-
-			entity.HasComment("Represents a language with culture differences that is spoken/written.");
+			entity.ToTable("LanguageCulture", t => t.HasComment("Represents a language with culture differences that is spoken/written."));
 
 			entity.Property(e => e.LanguageCultureId)
 															.HasMaxLength(15)

@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<CurrencyCountry>(entity =>
 		{
-			entity.ToTable("CurrencyCountry");
-
-			entity.HasComment("Linking of currency to country where currency is used.");
+			entity.ToTable("CurrencyCountry", t => t.HasComment("Linking of currency to country where currency is used."));
 
 			entity.Property(e => e.CurrencyCountryId)
 															.ValueGeneratedNever()

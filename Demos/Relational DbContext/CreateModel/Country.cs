@@ -9,9 +9,7 @@ internal static partial class CreateModel
 			entity.HasKey(e => e.CountryCode)
 															.HasName("pkcCountry");
 
-			entity.ToTable("Country");
-
-			entity.HasComment("Lookup table representing the countries as defined by the ISO 3166-1 standard.");
+			entity.ToTable("Country", t => t.HasComment("Lookup table representing the countries as defined by the ISO 3166-1 standard."));
 
 			entity.HasIndex(e => e.WorldRegionCode, "idxCountry_WorldRegionCode");
 

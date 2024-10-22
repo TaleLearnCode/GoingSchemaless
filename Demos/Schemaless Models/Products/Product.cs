@@ -4,7 +4,7 @@ public class Product : ModelBase
 {
 
 	[JsonProperty("name")]
-	public string Name { get; set; }
+	public string Name { get; set; } = null!;
 
 	[JsonProperty("yearReleased")]
 	public int? YearReleased { get; set; }

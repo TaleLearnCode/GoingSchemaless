@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<ProductAvailability>(entity =>
 		{
-			entity.ToTable("ProductAvailability");
-
-			entity.HasComment("The current availability of a product.");
+			entity.ToTable("ProductAvailability", t => t.HasComment("The current availability of a product."));
 
 			entity.Property(e => e.ProductAvailabilityId)
 															.ValueGeneratedNever()

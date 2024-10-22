@@ -9,9 +9,7 @@ internal static partial class CreateModel
 			entity.HasKey(e => e.WorldRegionCode)
 															.HasName("pkcWorldRegion");
 
-			entity.ToTable("WorldRegion");
-
-			entity.HasComment("Represents a spoken/written language.");
+			entity.ToTable("WorldRegion", t => t.HasComment("Represents a spoken/written language."));
 
 			entity.HasIndex(e => e.ParentCode, "idxWorldRegion_ParentCode");
 

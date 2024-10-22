@@ -9,9 +9,7 @@ internal static partial class CreateModel
 			entity.HasKey(e => new { e.CountryCode, e.CountryDivisionCode })
 															.HasName("pkcCountryDivision");
 
-			entity.ToTable("CountryDivision");
-
-			entity.HasComment("Lookup table representing the world regions as defined by the ISO 3166-2 standard.");
+			entity.ToTable("CountryDivision", t => t.HasComment("Lookup table representing the world regions as defined by the ISO 3166-2 standard."));
 
 			entity.Property(e => e.CountryCode)
 															.HasMaxLength(2)

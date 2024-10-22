@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<ContentType>(entity =>
 		{
-			entity.ToTable("ContentType");
-
-			entity.HasComment("Supported content types for the platform.");
+			entity.ToTable(t => t.HasComment("Supported content types for the platform."));
 
 			entity.Property(e => e.ContentTypeId)
 															.ValueGeneratedNever()

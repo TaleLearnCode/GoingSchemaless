@@ -6,9 +6,7 @@ internal static partial class CreateModel
 	{
 		modelBuilder.Entity<ProductPrice>(entity =>
 		{
-			entity.ToTable("ProductPrice");
-
-			entity.HasComment("Represents the currency-specific pricing for a product.");
+			entity.ToTable("ProductPrice", t => t.HasComment("Represents the currency-specific pricing for a product."));
 
 			entity.Property(e => e.ProductPriceId).HasComment("The identifier of the product pricing record.");
 

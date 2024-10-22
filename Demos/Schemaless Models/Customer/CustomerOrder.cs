@@ -4,7 +4,7 @@ public class CustomerOrder : ModelBase
 {
 
 	[JsonProperty("shippingAddress")]
-	public CustomerAddressComponent ShippingAddress { get; set; }
+	public CustomerAddressComponent ShippingAddress { get; set; } = null!;
 
 	[JsonProperty("orderStatusId")]
 	public string OrderStatusId { get; set; } = null!;
