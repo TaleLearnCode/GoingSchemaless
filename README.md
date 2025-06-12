@@ -48,6 +48,7 @@ Attendees will gain actionable insights into the migration process, from initial
 
 | Event | Location | Date | Time | Room | Downloads |
 |-------|:--------:|-----:|-----:|-----:|----------:|
+| [KCDC](https://www.kcdc.info/) | Kansas City, MO | August 13 - 15, 2025 | TBA | TBA | Available Afterwards |
 | [Update Conference Prague 2024](https://www.updateconference.net/) | Prague, Czech Republic | November 14, 2024 | 13:45 CET | Hall A | [Slides](./EventMaterials/GoingSchemaless-UpdateConf.pdf) |
 | [Serverless Architecture Conference Berlin 2024](https://serverless-architecture.io/berlin/) | Berlin, Germany | October 22, 2024 | 11:30 CEST | Salon 4 | [Slides](./EventMaterials/GoingSchemaless_SLABerlin2024.pdf) |
 | [dev up](https://www.devupconf.org/speakers/chad-green) | St. Charles, MO | August 16, 2024 | 8:30 AM CDT | Room D3 | [Slides](./EventMaterials/GoingSchemaless_DevUp2024.pdf) |
